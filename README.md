@@ -1,7 +1,7 @@
 # 4d-plugin-text-input-service
 Control the Input Method from 4D (OS X)
 
-![screenshot]()
+![screenshot](https://github.com/miyako/4d-plugin-text-input-service/blob/master/images/1.png)
 
 Example
 ---
