@@ -5,7 +5,7 @@ Commands to control the front-end text editor.
 
 | carbon | cocoa | win32 | win64 |
 |:------:|:-----:|:---------:|:---------:|
-|10.6|10.8|🚫|🚫|
+|🆗|🆗|🚫|🚫|
 
 ![screenshot](https://github.com/miyako/4d-plugin-text-input-service/blob/master/images/1.png)
 
