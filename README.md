@@ -1,10 +1,42 @@
 # 4d-plugin-text-input-service
-Control the Input Method from 4D (OS X)
+Commands to control the front-end text editor.
+
+##Platform
+
+| carbon | cocoa | win32 | win64 |
+|:------:|:-----:|:---------:|:---------:|
+|10.6|10.8|🚫|🚫|
 
 ![screenshot](https://github.com/miyako/4d-plugin-text-input-service/blob/master/images/1.png)
 
-Example
+Commands
 ---
+
+```
+// --- Input Source
+INPUT_SOURCE_Get_for_language
+INPUT_SOURCE_LIST
+INPUT_SOURCE_SET
+INPUT_SOURCE_Get
+INPUT_SOURCE_Get_category
+INPUT_SOURCE_Get_ASCII
+INPUT_SOURCE_Get_icon
+INPUT_SOURCE_Get_name
+INPUT_SOURCE_Get_type
+INPUT_SOURCE_DISABLE
+INPUT_SOURCE_ENABLE
+
+// --- Keyboard Layout
+KEYBOARD_LAYOUT_Get_ASCII
+KEYBOARD_LAYOUT_SET_OVERRIDE
+KEYBOARD_LAYOUT_Get
+KEYBOARD_LAYOUT_Get_override
+
+```
+
+Examples
+---
+
 ```
 $ascii:=INPUT SOURCE Get ASCII   //英数キーを押したときに選択されるもの
   //例: 
