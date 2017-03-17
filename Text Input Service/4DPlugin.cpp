@@ -17,10 +17,11 @@ void PluginMain(PA_long32 selector, PA_PluginParameters params)
 	try
 	{
 		PA_long32 pProcNum = selector;
-		sLONG_PTR *pResult = (sLONG_PTR *)params->fResult;
-		PackagePtr pParams = (PackagePtr)params->fParameters;
+//		sLONG_PTR *pResult = (sLONG_PTR *)params->fResult;
+//		PackagePtr pParams = (PackagePtr)params->fParameters;
 
-		CommandDispatcher(pProcNum, pResult, pParams); 
+//		CommandDispatcher(pProcNum, pResult, pParams);
+		CommandDispatcherInMainProcess (pProcNum, params);
 	}
 	catch(...)
 	{
@@ -28,76 +29,79 @@ void PluginMain(PA_long32 selector, PA_PluginParameters params)
 	}
 }
 
-void CommandDispatcher (PA_long32 pProcNum, sLONG_PTR *pResult, PackagePtr pParams)
+void CommandDispatcherInMainProcess (int32_t pProcNum, PA_PluginParameters params)
+//void CommandDispatcher (PA_long32 pProcNum, sLONG_PTR *pResult, PackagePtr pParams)
 {
 	switch(pProcNum)
 	{
 // --- Input Source
 
 		case 1 :
-			INPUT_SOURCE_Get_for_language(pResult, pParams);
+			PA_RunInMainProcess((PA_RunInMainProcessProcPtr)INPUT_SOURCE_Get_for_language, params);
 			break;
 
 		case 2 :
-			INPUT_SOURCE_LIST(pResult, pParams);
+			PA_RunInMainProcess((PA_RunInMainProcessProcPtr)INPUT_SOURCE_LIST, params);
 			break;
 
 		case 3 :
-			INPUT_SOURCE_SET(pResult, pParams);
+			PA_RunInMainProcess((PA_RunInMainProcessProcPtr)INPUT_SOURCE_SET, params);
 			break;
 
 		case 4 :
-			INPUT_SOURCE_Get(pResult, pParams);
+			PA_RunInMainProcess((PA_RunInMainProcessProcPtr)INPUT_SOURCE_Get, params);
 			break;
 
 		case 5 :
-			INPUT_SOURCE_Get_category(pResult, pParams);
+			PA_RunInMainProcess((PA_RunInMainProcessProcPtr)INPUT_SOURCE_Get_category, params);
 			break;
 
 		case 6 :
-			INPUT_SOURCE_Get_ASCII(pResult, pParams);
+			PA_RunInMainProcess((PA_RunInMainProcessProcPtr)INPUT_SOURCE_Get_ASCII, params);
 			break;
 
 		case 7 :
-			INPUT_SOURCE_Get_icon(pResult, pParams);
+			PA_RunInMainProcess((PA_RunInMainProcessProcPtr)INPUT_SOURCE_Get_icon, params);
 			break;
 
 		case 8 :
-			INPUT_SOURCE_Get_name(pResult, pParams);
+			PA_RunInMainProcess((PA_RunInMainProcessProcPtr)INPUT_SOURCE_Get_name, params);
 			break;
 
 		case 9 :
-			INPUT_SOURCE_Get_type(pResult, pParams);
+			PA_RunInMainProcess((PA_RunInMainProcessProcPtr)INPUT_SOURCE_Get_type, params);
 			break;
 
 		case 10 :
-			INPUT_SOURCE_DISABLE(pResult, pParams);
+			PA_RunInMainProcess((PA_RunInMainProcessProcPtr)INPUT_SOURCE_DISABLE, params);
 			break;
 
 		case 11 :
-			INPUT_SOURCE_ENABLE(pResult, pParams);
+			PA_RunInMainProcess((PA_RunInMainProcessProcPtr)INPUT_SOURCE_ENABLE, params);
 			break;
 
 // --- Keyboard Layout
 
 		case 12 :
-			KEYBOARD_LAYOUT_Get_ASCII(pResult, pParams);
+			PA_RunInMainProcess((PA_RunInMainProcessProcPtr)KEYBOARD_LAYOUT_Get_ASCII, params);
 			break;
 
 		case 13 :
-			KEYBOARD_LAYOUT_SET_OVERRIDE(pResult, pParams);
+			PA_RunInMainProcess((PA_RunInMainProcessProcPtr)KEYBOARD_LAYOUT_SET_OVERRIDE, params);
 			break;
 
 		case 14 :
-			KEYBOARD_LAYOUT_Get(pResult, pParams);
+			PA_RunInMainProcess((PA_RunInMainProcessProcPtr)KEYBOARD_LAYOUT_Get, params);
 			break;
 
 		case 15 :
-			KEYBOARD_LAYOUT_Get_override(pResult, pParams);
+			PA_RunInMainProcess((PA_RunInMainProcessProcPtr)KEYBOARD_LAYOUT_Get_override, params);
 			break;
 
 	}
 }
+
+#pragma mark -
 
 // --------------------------------- Input Source ---------------------------------
 
@@ -138,11 +142,14 @@ TISInputSourceRef _RetainInputSourceForName(NSString *name, BOOL includeDisabled
 	return source;	
 }
 
-void INPUT_SOURCE_Get_for_language(sLONG_PTR *pResult, PackagePtr pParams)
+void INPUT_SOURCE_Get_for_language(PA_PluginParameters params)
 {
 	C_TEXT Param1;
 	C_TEXT returnValue;
 
+	sLONG_PTR *pResult = (sLONG_PTR *)params->fResult;
+	PackagePtr pParams = (PackagePtr)params->fParameters;
+	
 	Param1.fromParamAtIndex(pParams, 1);
 	
 	NSString *str = Param1.copyUTF16String();
@@ -158,10 +165,13 @@ void INPUT_SOURCE_Get_for_language(sLONG_PTR *pResult, PackagePtr pParams)
 	returnValue.setReturn(pResult);
 }
 
-void INPUT_SOURCE_LIST(sLONG_PTR *pResult, PackagePtr pParams)
+void INPUT_SOURCE_LIST(PA_PluginParameters params)
 {
 	ARRAY_TEXT Param1;
 
+//	sLONG_PTR *pResult = (sLONG_PTR *)params->fResult;
+	PackagePtr pParams = (PackagePtr)params->fParameters;
+	
 	Param1.fromParamAtIndex(pParams, 1);
 	Param1.setSize(0);
 	
@@ -195,10 +205,13 @@ void INPUT_SOURCE_LIST(sLONG_PTR *pResult, PackagePtr pParams)
 	Param1.toParamAtIndex(pParams, 1);
 }
 
-void INPUT_SOURCE_SET(sLONG_PTR *pResult, PackagePtr pParams)
+void INPUT_SOURCE_SET(PA_PluginParameters params)
 {
 	C_TEXT Param1;
 
+//	sLONG_PTR *pResult = (sLONG_PTR *)params->fResult;
+	PackagePtr pParams = (PackagePtr)params->fParameters;
+	
 	Param1.fromParamAtIndex(pParams, 1);
 
 	NSString *str = Param1.copyUTF16String();
@@ -212,10 +225,13 @@ void INPUT_SOURCE_SET(sLONG_PTR *pResult, PackagePtr pParams)
 	}
 }
 
-void INPUT_SOURCE_Get(sLONG_PTR *pResult, PackagePtr pParams)
+void INPUT_SOURCE_Get(PA_PluginParameters params)
 {
 	C_TEXT returnValue;
 
+	sLONG_PTR *pResult = (sLONG_PTR *)params->fResult;
+//	PackagePtr pParams = (PackagePtr)params->fParameters;
+	
 	TISInputSourceRef source = TISCopyCurrentKeyboardInputSource();	
     if(source){
         returnValue.setUTF16String((NSString *)TISGetInputSourceProperty(source, kTISPropertyInputSourceID));	
@@ -224,11 +240,14 @@ void INPUT_SOURCE_Get(sLONG_PTR *pResult, PackagePtr pParams)
 	returnValue.setReturn(pResult);
 }
 
-void INPUT_SOURCE_Get_category(sLONG_PTR *pResult, PackagePtr pParams)
+void INPUT_SOURCE_Get_category(PA_PluginParameters params)
 {
 	C_TEXT Param1;
 	C_TEXT returnValue;
 
+	sLONG_PTR *pResult = (sLONG_PTR *)params->fResult;
+	PackagePtr pParams = (PackagePtr)params->fParameters;
+	
 	Param1.fromParamAtIndex(pParams, 1);
 
 	NSString *str = Param1.copyUTF16String();
@@ -244,10 +263,13 @@ void INPUT_SOURCE_Get_category(sLONG_PTR *pResult, PackagePtr pParams)
 	returnValue.setReturn(pResult);
 }
 
-void INPUT_SOURCE_Get_ASCII(sLONG_PTR *pResult, PackagePtr pParams)
+void INPUT_SOURCE_Get_ASCII(PA_PluginParameters params)
 {
 	C_TEXT returnValue;
 
+	sLONG_PTR *pResult = (sLONG_PTR *)params->fResult;
+//	PackagePtr pParams = (PackagePtr)params->fParameters;
+	
 	TISInputSourceRef source = TISCopyCurrentASCIICapableKeyboardInputSource();	
     if(source){
         returnValue.setUTF16String((NSString *)TISGetInputSourceProperty(source, kTISPropertyInputSourceID));	
@@ -256,10 +278,13 @@ void INPUT_SOURCE_Get_ASCII(sLONG_PTR *pResult, PackagePtr pParams)
 	returnValue.setReturn(pResult);
 }
 
-void INPUT_SOURCE_Get_icon(sLONG_PTR *pResult, PackagePtr pParams)
+void INPUT_SOURCE_Get_icon(PA_PluginParameters params)
 {
 	C_TEXT Param1;
 
+	sLONG_PTR *pResult = (sLONG_PTR *)params->fResult;
+	PackagePtr pParams = (PackagePtr)params->fParameters;
+	
 	Param1.fromParamAtIndex(pParams, 1);
 
 	NSString *str = Param1.copyUTF16String();
@@ -332,11 +357,14 @@ void INPUT_SOURCE_Get_icon(sLONG_PTR *pResult, PackagePtr pParams)
 	}
 }
 
-void INPUT_SOURCE_Get_name(sLONG_PTR *pResult, PackagePtr pParams)
+void INPUT_SOURCE_Get_name(PA_PluginParameters params)
 {
 	C_TEXT Param1;
 	C_TEXT returnValue;
 
+	sLONG_PTR *pResult = (sLONG_PTR *)params->fResult;
+	PackagePtr pParams = (PackagePtr)params->fParameters;
+	
 	Param1.fromParamAtIndex(pParams, 1);
 	
 	NSString *str = Param1.copyUTF16String();		
@@ -352,11 +380,14 @@ void INPUT_SOURCE_Get_name(sLONG_PTR *pResult, PackagePtr pParams)
 	returnValue.setReturn(pResult);
 }
 
-void INPUT_SOURCE_Get_type(sLONG_PTR *pResult, PackagePtr pParams)
+void INPUT_SOURCE_Get_type(PA_PluginParameters params)
 {
 	C_TEXT Param1;
 	C_TEXT returnValue;
 
+	sLONG_PTR *pResult = (sLONG_PTR *)params->fResult;
+	PackagePtr pParams = (PackagePtr)params->fParameters;
+	
 	Param1.fromParamAtIndex(pParams, 1);
 	
 	NSString *str = Param1.copyUTF16String();		
@@ -372,10 +403,13 @@ void INPUT_SOURCE_Get_type(sLONG_PTR *pResult, PackagePtr pParams)
 	returnValue.setReturn(pResult);
 }
 
-void INPUT_SOURCE_DISABLE(sLONG_PTR *pResult, PackagePtr pParams)
+void INPUT_SOURCE_DISABLE(PA_PluginParameters params)
 {
 	C_TEXT Param1;
 
+//	sLONG_PTR *pResult = (sLONG_PTR *)params->fResult;
+	PackagePtr pParams = (PackagePtr)params->fParameters;
+	
 	Param1.fromParamAtIndex(pParams, 1);
 
 	NSString *str = Param1.copyUTF16String();		
@@ -389,10 +423,13 @@ void INPUT_SOURCE_DISABLE(sLONG_PTR *pResult, PackagePtr pParams)
 	}
 }
 
-void INPUT_SOURCE_ENABLE(sLONG_PTR *pResult, PackagePtr pParams)
+void INPUT_SOURCE_ENABLE(PA_PluginParameters params)
 {
 	C_TEXT Param1;
 
+//	sLONG_PTR *pResult = (sLONG_PTR *)params->fResult;
+	PackagePtr pParams = (PackagePtr)params->fParameters;
+	
 	Param1.fromParamAtIndex(pParams, 1);
 
 	NSString *str = Param1.copyUTF16String();	
@@ -408,10 +445,13 @@ void INPUT_SOURCE_ENABLE(sLONG_PTR *pResult, PackagePtr pParams)
 
 // -------------------------------- Keyboard Layout -------------------------------
 
-void KEYBOARD_LAYOUT_Get_ASCII(sLONG_PTR *pResult, PackagePtr pParams)
+void KEYBOARD_LAYOUT_Get_ASCII(PA_PluginParameters params)
 {
 	C_TEXT returnValue;
 
+	sLONG_PTR *pResult = (sLONG_PTR *)params->fResult;
+//	PackagePtr pParams = (PackagePtr)params->fParameters;
+	
 	TISInputSourceRef source = TISCopyCurrentASCIICapableKeyboardLayoutInputSource();
     
     if(source){
@@ -421,10 +461,13 @@ void KEYBOARD_LAYOUT_Get_ASCII(sLONG_PTR *pResult, PackagePtr pParams)
 	returnValue.setReturn(pResult);
 }
 
-void KEYBOARD_LAYOUT_SET_OVERRIDE(sLONG_PTR *pResult, PackagePtr pParams)
+void KEYBOARD_LAYOUT_SET_OVERRIDE(PA_PluginParameters params)
 {
 	C_TEXT Param1;
 
+//	sLONG_PTR *pResult = (sLONG_PTR *)params->fResult;
+	PackagePtr pParams = (PackagePtr)params->fParameters;
+	
 	Param1.fromParamAtIndex(pParams, 1);
 
 	NSString *str = Param1.copyUTF16String();
@@ -438,10 +481,13 @@ void KEYBOARD_LAYOUT_SET_OVERRIDE(sLONG_PTR *pResult, PackagePtr pParams)
 	}
 }
 
-void KEYBOARD_LAYOUT_Get(sLONG_PTR *pResult, PackagePtr pParams)
+void KEYBOARD_LAYOUT_Get(PA_PluginParameters params)
 {
 	C_TEXT returnValue;
 
+	sLONG_PTR *pResult = (sLONG_PTR *)params->fResult;
+//	PackagePtr pParams = (PackagePtr)params->fParameters;
+	
 	TISInputSourceRef source = TISCopyCurrentKeyboardLayoutInputSource();
     if(source){
         returnValue.setUTF16String((NSString *)TISGetInputSourceProperty(source, kTISPropertyInputSourceID));	
@@ -450,10 +496,13 @@ void KEYBOARD_LAYOUT_Get(sLONG_PTR *pResult, PackagePtr pParams)
 	returnValue.setReturn(pResult);
 }
 
-void KEYBOARD_LAYOUT_Get_override(sLONG_PTR *pResult, PackagePtr pParams)
+void KEYBOARD_LAYOUT_Get_override(PA_PluginParameters params)
 {
 	C_TEXT returnValue;
 
+	sLONG_PTR *pResult = (sLONG_PTR *)params->fResult;
+//	PackagePtr pParams = (PackagePtr)params->fParameters;
+	
 	TISInputSourceRef source = TISCopyInputMethodKeyboardLayoutOverride();	
     
     if(source){

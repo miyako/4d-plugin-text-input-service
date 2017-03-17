@@ -9,22 +9,24 @@
  # --------------------------------------------------------------------------------*/
 
 
+void CommandDispatcherInMainProcess (int32_t pProcNum, PA_PluginParameters params);
+
 
 // --- Input Source
-void INPUT_SOURCE_Get_for_language(sLONG_PTR *pResult, PackagePtr pParams);
-void INPUT_SOURCE_LIST(sLONG_PTR *pResult, PackagePtr pParams);
-void INPUT_SOURCE_SET(sLONG_PTR *pResult, PackagePtr pParams);
-void INPUT_SOURCE_Get(sLONG_PTR *pResult, PackagePtr pParams);
-void INPUT_SOURCE_Get_category(sLONG_PTR *pResult, PackagePtr pParams);
-void INPUT_SOURCE_Get_ASCII(sLONG_PTR *pResult, PackagePtr pParams);
-void INPUT_SOURCE_Get_icon(sLONG_PTR *pResult, PackagePtr pParams);
-void INPUT_SOURCE_Get_name(sLONG_PTR *pResult, PackagePtr pParams);
-void INPUT_SOURCE_Get_type(sLONG_PTR *pResult, PackagePtr pParams);
-void INPUT_SOURCE_DISABLE(sLONG_PTR *pResult, PackagePtr pParams);
-void INPUT_SOURCE_ENABLE(sLONG_PTR *pResult, PackagePtr pParams);
+void INPUT_SOURCE_Get_for_language(PA_PluginParameters params);
+void INPUT_SOURCE_LIST(PA_PluginParameters params);
+void INPUT_SOURCE_SET(PA_PluginParameters params);
+void INPUT_SOURCE_Get(PA_PluginParameters params);
+void INPUT_SOURCE_Get_category(PA_PluginParameters params);
+void INPUT_SOURCE_Get_ASCII(PA_PluginParameters params);
+void INPUT_SOURCE_Get_icon(PA_PluginParameters params);
+void INPUT_SOURCE_Get_name(PA_PluginParameters params);
+void INPUT_SOURCE_Get_type(PA_PluginParameters params);
+void INPUT_SOURCE_DISABLE(PA_PluginParameters params);
+void INPUT_SOURCE_ENABLE(PA_PluginParameters params);
 
 // --- Keyboard Layout
-void KEYBOARD_LAYOUT_Get_ASCII(sLONG_PTR *pResult, PackagePtr pParams);
-void KEYBOARD_LAYOUT_SET_OVERRIDE(sLONG_PTR *pResult, PackagePtr pParams);
-void KEYBOARD_LAYOUT_Get(sLONG_PTR *pResult, PackagePtr pParams);
-void KEYBOARD_LAYOUT_Get_override(sLONG_PTR *pResult, PackagePtr pParams);
+void KEYBOARD_LAYOUT_Get_ASCII(PA_PluginParameters params);
+void KEYBOARD_LAYOUT_SET_OVERRIDE(PA_PluginParameters params);
+void KEYBOARD_LAYOUT_Get(PA_PluginParameters params);
+void KEYBOARD_LAYOUT_Get_override(PA_PluginParameters params);
