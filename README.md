@@ -13,30 +13,97 @@ Commands to control the front-end text editor.
 
 ![screenshot](https://github.com/miyako/4d-plugin-text-input-service/blob/master/images/1.png)
 
-Commands
----
+## Syntax
 
 ```
-// --- Input Source
-INPUT_SOURCE_Get_for_language
-INPUT_SOURCE_LIST
-INPUT_SOURCE_SET
-INPUT_SOURCE_Get
-INPUT_SOURCE_Get_category
-INPUT_SOURCE_Get_ASCII
-INPUT_SOURCE_Get_icon
-INPUT_SOURCE_Get_name
-INPUT_SOURCE_Get_type
-INPUT_SOURCE_DISABLE
-INPUT_SOURCE_ENABLE
+source:=INPUT SOURCE Get for language (language)
+```
 
-// --- Keyboard Layout
-KEYBOARD_LAYOUT_Get_ASCII
-KEYBOARD_LAYOUT_SET_OVERRIDE
-KEYBOARD_LAYOUT_Get
-KEYBOARD_LAYOUT_Get_override
+Parameter|Type|Description
+------------|------------|----
+language|TEXT|
+source|TEXT|
 
 ```
+INPUT SOURCE LIST (sources)
+```
+
+Parameter|Type|Description
+------------|------------|----
+sources|ARRAY TEXT|
+
+```
+source:=INPUT SOURCE Get
+INPUT SOURCE SET (source)
+```
+
+Parameter|Type|Description
+------------|------------|----
+source|TEXT|
+
+```
+category:=INPUT SOURCE Get category (source)
+```
+
+Parameter|Type|Description
+------------|------------|----
+source|TEXT|
+category|TEXT|
+
+```
+source:=INPUT SOURCE Get ASCII
+```
+
+Parameter|Type|Description
+------------|------------|----
+source|TEXT|
+
+```
+icon:=INPUT SOURCE Get icon (source)
+```
+
+Parameter|Type|Description
+------------|------------|----
+source|TEXT|
+icon|PICTURE|
+
+```
+name:=INPUT SOURCE Get name (source)
+```
+
+Parameter|Type|Description
+------------|------------|----
+source|TEXT|
+name|TEXT|
+
+```
+type:=INPUT SOURCE Get type (source)
+```
+
+Parameter|Type|Description
+------------|------------|----
+source|TEXT|
+type|TEXT|
+
+```
+INPUT SOURCE DISABLE (source)
+INPUT SOURCE ENABLE (source)
+```
+
+Parameter|Type|Description
+------------|------------|----
+source|TEXT|
+
+```
+layout:=KEYBOARD LAYOUT Get
+layout:=KEYBOARD LAYOUT Get ASCII
+layout:=KEYBOARD LAYOUT Get override
+KEYBOARD LAYOUT SET OVERRIDE (layout)
+```
+
+Parameter|Type|Description
+------------|------------|----
+layout|TEXT|
 
 Examples
 ---
