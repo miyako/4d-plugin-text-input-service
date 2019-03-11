@@ -13,6 +13,12 @@ Commands to control the front-end text editor.
 
 <img src="https://cloud.githubusercontent.com/assets/1725068/18940649/21945000-8645-11e6-86ed-4a0f800e5a73.png" width="32" height="32" /> <img src="https://cloud.githubusercontent.com/assets/1725068/18940648/2192ddba-8645-11e6-864d-6d5692d55717.png" width="32" height="32" />
 
+![preemption xx](https://user-images.githubusercontent.com/1725068/41327179-4e839948-6efd-11e8-982b-a670d511e04f.png)
+
+* Except ``INPUT SOURCE`` ``INPUT SOURCE Get icon``
+
+[1.0-carbon](https://github.com/miyako/4d-plugin-text-input-service/releases/tag/1.0-carbon)
+
 ![screenshot](https://github.com/miyako/4d-plugin-text-input-service/blob/master/images/1.png)
 
 ## Syntax
