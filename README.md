@@ -17,7 +17,7 @@ Commands to control the front-end text editor.
 
 * Except ``INPUT SOURCE`` ``INPUT SOURCE Get icon``
 
-[1.0](https://github.com/miyako/4d-plugin-text-input-service/releases/tag/1.0)
+[1.1](https://github.com/miyako/4d-plugin-text-input-service/releases/tag/1.1)
 
 [1.1-carbon](https://github.com/miyako/4d-plugin-text-input-service/releases/tag/1.1-carbon) for compatibility
 
