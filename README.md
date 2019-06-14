@@ -19,7 +19,7 @@ Commands to control the front-end text editor.
 
 [1.0](https://github.com/miyako/4d-plugin-text-input-service/releases/tag/1.0)
 
-[1.0-carbon](https://github.com/miyako/4d-plugin-text-input-service/releases/tag/1.0-carbon) for compatibility
+[1.1-carbon](https://github.com/miyako/4d-plugin-text-input-service/releases/tag/1.1-carbon) for compatibility
 
 ![screenshot](https://github.com/miyako/4d-plugin-text-input-service/blob/master/images/1.png)
 
