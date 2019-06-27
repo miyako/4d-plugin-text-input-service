@@ -15,7 +15,7 @@ Commands to control the front-end text editor.
 
 ![preemption xx](https://user-images.githubusercontent.com/1725068/41327179-4e839948-6efd-11e8-982b-a670d511e04f.png)
 
-* Except ``INPUT SOURCE`` ``INPUT SOURCE Get icon``
+* Except ``INPUT SOURCE LIST`` ``INPUT SOURCE Get icon``
 
 [1.1](https://github.com/miyako/4d-plugin-text-input-service/releases/tag/1.1)
 
