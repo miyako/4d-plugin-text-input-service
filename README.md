@@ -1,7 +1,9 @@
 # 4d-plugin-text-input-service
 Commands to control the front-end text editor.
 
-___deprecated___ use [/4d-plugin-text-input-context](https://github.com/miyako/4d-plugin-text-input-contexthttps://github.com/miyako/4d-plugin-text-input-context)
+___deprecated___ 
+
+use [4d-plugin-text-input-context](https://github.com/miyako/4d-plugin-text-input-contexthttps://github.com/miyako/4d-plugin-text-input-context)
 
 ### Platform
 
