@@ -1,7 +1,7 @@
 # 4d-plugin-text-input-service
 Commands to control the front-end text editor.
 
-___deprecated___ 
+![obsolete-word-black-frame-word-obsolete-word-black-frame-d-rendering-123942590](https://user-images.githubusercontent.com/1725068/78463940-29122280-771e-11ea-8be8-a7830725403e.jpg)
 
 use [4d-plugin-text-input-context](https://github.com/miyako/4d-plugin-text-input-context)
 
@@ -11,25 +11,17 @@ use [4d-plugin-text-input-context](https://github.com/miyako/4d-plugin-text-inpu
 |:------:|:-----:|:---------:|:---------:|
 ||<img src="https://cloud.githubusercontent.com/assets/1725068/22371562/1b091f0a-e4db-11e6-8458-8653954a7cce.png" width="24" height="24" />|||
 
-* Windows向けは[こちら](https://github.com/miyako/4d-plugin-input-method-manager/)
-
 ### Version
 
-<img src="https://cloud.githubusercontent.com/assets/1725068/18940648/2192ddba-8645-11e6-864d-6d5692d55717.png" width="32" height="32" /> <img src="https://user-images.githubusercontent.com/1725068/41266195-ddf767b2-6e30-11e8-9d6b-2adf6a9f57a5.png" width="32" height="32" />
+<img width="32" height="32" src="https://user-images.githubusercontent.com/1725068/73986501-15964580-4981-11ea-9ac1-73c5cee50aae.png"> <img src="https://user-images.githubusercontent.com/1725068/73987971-db2ea780-4984-11ea-8ada-e25fb9c3cf4e.png" width="32" height="32" />
 
-![preemption xx](https://user-images.githubusercontent.com/1725068/41327179-4e839948-6efd-11e8-982b-a670d511e04f.png)
-
-* Except ``INPUT SOURCE LIST`` ``INPUT SOURCE Get icon``
-
-[1.1](https://github.com/miyako/4d-plugin-text-input-service/releases/tag/1.1)
-
-[1.1-carbon](https://github.com/miyako/4d-plugin-text-input-service/releases/tag/1.1-carbon) for compatibility
+* Windows向けは[こちら](https://github.com/miyako/4d-plugin-input-method-manager/)
 
 ![screenshot](https://github.com/miyako/4d-plugin-text-input-service/blob/master/images/1.png)
 
 ## Syntax
 
-```
+```4d
 source:=INPUT SOURCE Get for language (language)
 ```
 
@@ -38,7 +30,7 @@ Parameter|Type|Description
 language|TEXT|
 source|TEXT|
 
-```
+```4d
 INPUT SOURCE LIST (sources)
 ```
 
@@ -46,7 +38,7 @@ Parameter|Type|Description
 ------------|------------|----
 sources|ARRAY TEXT|
 
-```
+```4d
 source:=INPUT SOURCE Get
 INPUT SOURCE SET (source)
 ```
@@ -55,7 +47,7 @@ Parameter|Type|Description
 ------------|------------|----
 source|TEXT|
 
-```
+```4d
 category:=INPUT SOURCE Get category (source)
 ```
 
@@ -64,7 +56,7 @@ Parameter|Type|Description
 source|TEXT|
 category|TEXT|
 
-```
+```4d
 source:=INPUT SOURCE Get ASCII
 ```
 
@@ -72,7 +64,7 @@ Parameter|Type|Description
 ------------|------------|----
 source|TEXT|
 
-```
+```4d
 icon:=INPUT SOURCE Get icon (source)
 ```
 
@@ -81,7 +73,7 @@ Parameter|Type|Description
 source|TEXT|
 icon|PICTURE|
 
-```
+```4d
 name:=INPUT SOURCE Get name (source)
 ```
 
@@ -90,7 +82,7 @@ Parameter|Type|Description
 source|TEXT|
 name|TEXT|
 
-```
+```4d
 type:=INPUT SOURCE Get type (source)
 ```
 
@@ -99,7 +91,7 @@ Parameter|Type|Description
 source|TEXT|
 type|TEXT|
 
-```
+```4d
 INPUT SOURCE DISABLE (source)
 INPUT SOURCE ENABLE (source)
 ```
@@ -108,7 +100,7 @@ Parameter|Type|Description
 ------------|------------|----
 source|TEXT|
 
-```
+```4d
 layout:=KEYBOARD LAYOUT Get
 layout:=KEYBOARD LAYOUT Get ASCII
 layout:=KEYBOARD LAYOUT Get override
@@ -119,10 +111,9 @@ Parameter|Type|Description
 ------------|------------|----
 layout|TEXT|
 
-Examples
----
+### Examples
 
-```
+```4d
 $ascii:=INPUT SOURCE Get ASCII   //英数キーを押したときに選択されるもの
   //例: 
   //com.apple.inputmethod.Kotoeri.Roman
