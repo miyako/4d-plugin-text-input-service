@@ -1,7 +1,7 @@
+![deprecated](https://img.shields.io/badge/-deprecated-inactive)
+
 # 4d-plugin-text-input-service
 Commands to control the front-end text editor.
-
-![obsolete-word-black-frame-word-obsolete-word-black-frame-d-rendering-123942590](https://user-images.githubusercontent.com/1725068/78463940-29122280-771e-11ea-8be8-a7830725403e.jpg)
 
 use [4d-plugin-text-input-context](https://github.com/miyako/4d-plugin-text-input-context)
 
