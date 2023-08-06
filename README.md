@@ -1,16 +1,13 @@
-![deprecated](https://img.shields.io/badge/-deprecated-inactive)
-
 # 4d-plugin-text-input-service
 Commands to control the front-end text editor.
-
-use [4d-plugin-text-input-context](https://github.com/miyako/4d-plugin-text-input-context)
 
 ![version](https://img.shields.io/badge/version-16%2B-8331AE)
 ![platform](https://img.shields.io/static/v1?label=platform&message=mac-intel%20|%20mac-arm%20&color=blue)
 [![license](https://img.shields.io/github/license/miyako/4d-plugin-jwt)](LICENSE)
 ![downloads](https://img.shields.io/github/downloads/miyako/4d-plugin-jwt/total)
+![deprecated](https://img.shields.io/badge/-deprecated-inactive)
 
-**Note**: for v17 and earlier, move `manifest.json` to `Contents`
+use [4d-plugin-text-input-context](https://github.com/miyako/4d-plugin-text-input-context)
 
 * Windows向けは[こちら](https://github.com/miyako/4d-plugin-input-method-manager/)
 
