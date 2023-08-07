@@ -7,6 +7,8 @@ Commands to control the front-end text editor.
 ![downloads](https://img.shields.io/github/downloads/miyako/4d-plugin-jwt/total)
 ![deprecated](https://img.shields.io/badge/-deprecated-inactive)
 
+* 新バージョンは[こちら](https://github.com/miyako/4d-plugin-text-input-service-v2)
+
 * Windows向けは[こちら](https://github.com/miyako/4d-plugin-input-method-manager/)
 
 ![screenshot](https://github.com/miyako/4d-plugin-text-input-service/blob/master/images/1.png)
